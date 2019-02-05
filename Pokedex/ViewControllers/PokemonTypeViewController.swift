@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  PokemonTypeViewController.swift
 //  Pokedex
 //
 //  Created by Eduardo Varela on 03/02/19.
@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Reachability
 
 class PokemonTypeViewController: UIViewController {
     
@@ -15,6 +16,7 @@ class PokemonTypeViewController: UIViewController {
     var pokemonTypes: [PokemonType] = []
     var selectedItem: Int = 0
     var activityIndicator: UIActivityIndicatorView? = nil
+    let reachability = Reachability()!
 
     
     override func viewDidLoad() {
@@ -24,6 +26,13 @@ class PokemonTypeViewController: UIViewController {
         NotificationCenter.default.addObserver(self, selector: #selector(self.onDidReceivePokemonTypeList(notification:)), name: .didReceivePokemonTypeList, object: nil)
         
         self.title = "Pokémon Types"
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(reachabilityChanged(note:)), name: .reachabilityChanged, object: reachability)
+        do{
+            try reachability.startNotifier()
+        }catch{
+            print("could not start reachability notifier")
+        }
 
         // Create the Activity Indicator
         activityIndicator = UIActivityIndicatorView(style: .gray)
@@ -59,6 +68,17 @@ class PokemonTypeViewController: UIViewController {
         }
     }
     
+    @objc func reachabilityChanged(note: Notification) {
+        
+        let reachability = note.object as! Reachability
+        
+        
+        if reachability.connection != .none{
+            if (pokemonTypes.isEmpty){
+                PokemonDataManager.pokemonTypeList()
+            }
+        }
+    }
 }
 
 extension PokemonTypeViewController: UICollectionViewDelegate, UICollectionViewDataSource{
@@ -71,6 +91,13 @@ extension PokemonTypeViewController: UICollectionViewDelegate, UICollectionViewD
         
         if let typeImage = cell.viewWithTag(1) as? UIImageView{
             typeImage.image = UIImage(named: "\(pokemonTypes[indexPath.row].name)Type")
+            
+            typeImage.layer.borderWidth = 1
+            typeImage.layer.masksToBounds = false
+            typeImage.layer.borderColor = UIColor.black.cgColor
+            typeImage.layer.cornerRadius = typeImage.frame.height/2
+            typeImage.clipsToBounds = true
+
         }
         
         if let typeLabel = cell.viewWithTag(2) as? UILabel{

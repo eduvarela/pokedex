@@ -40,14 +40,8 @@ class PokemonListViewController: UIViewController {
         }catch{
             print("could not start reachability notifier")
         }
-        
-    
     }
-    
-    override func viewWillAppear(_ animated: Bool) {
 
-    }
-    
     @objc func reachabilityChanged(note: Notification) {
         
         let reachability = note.object as! Reachability
@@ -58,7 +52,6 @@ class PokemonListViewController: UIViewController {
                 PokemonDataManager.pokemonTypeData(url: typeUrl)
             }
         }
-        
     }
     
     @objc func onDidReceivePokemonTypeData(notification:Notification) {

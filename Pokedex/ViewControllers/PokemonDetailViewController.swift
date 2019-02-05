@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Reachability
 
 class PokemonDetailViewController: UIViewController {
     @IBOutlet weak var pokemonImage: UIImageView!
@@ -18,7 +19,8 @@ class PokemonDetailViewController: UIViewController {
     var activityIndicator: UIActivityIndicatorView? = nil
     var pokemonUrl: String = ""
     var abilitiesList: [PokemonAbilityData] = []
-    
+    let reachability = Reachability()!
+
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -37,6 +39,14 @@ class PokemonDetailViewController: UIViewController {
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .action, target: self, action: #selector(shareTextButton))
         
         self.title = "Loading..."
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(reachabilityChanged(note:)), name: .reachabilityChanged, object: reachability)
+        do{
+            try reachability.startNotifier()
+        }catch{
+            print("could not start reachability notifier")
+        }
+        
         self.pokemonImage.layer.cornerRadius = self.pokemonImage.frame.width / 2
         
         PokemonDataManager.pokemonData(url: pokemonUrl)
@@ -77,6 +87,18 @@ class PokemonDetailViewController: UIViewController {
         // present the view controller
         self.present(activityViewController, animated: true, completion: nil)
         
+    }
+    
+    @objc func reachabilityChanged(note: Notification) {
+        
+        let reachability = note.object as! Reachability
+        
+        
+        if reachability.connection != .none{
+            if (abilitiesList.isEmpty){
+                PokemonDataManager.pokemonData(url: pokemonUrl)
+            }
+        }
     }
 }
 
