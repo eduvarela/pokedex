@@ -16,9 +16,14 @@ class PokemonDataManager: NSObject {
         Alamofire.request("https://pokeapi.co/api/v2/type").responseJSON { response in
 
                 if let data = response.data{
-                    let responseData: PokemonTypeRequestResponse = try! JSONDecoder().decode(PokemonTypeRequestResponse.self, from: data)
+                    if response.error != nil{
+                        return
+                    }
                     
-                    NotificationCenter.default.post(name: .didReceivePokemonTypeList, object: self, userInfo: ["pokemonTypeList": responseData.results])
+                    if let responseData: PokemonTypeRequestResponse = try? JSONDecoder().decode(PokemonTypeRequestResponse.self, from: data){
+                        
+                        NotificationCenter.default.post(name: .didReceivePokemonTypeList, object: self, userInfo: ["pokemonTypeList": responseData.results])
+                    }
                 }
         }
     }
@@ -28,15 +33,19 @@ class PokemonDataManager: NSObject {
         Alamofire.request(url).responseJSON { response in
             
             if let data = response.data{
-                let responseData: PokemonTypeDataParser = try! JSONDecoder().decode(PokemonTypeDataParser.self, from: data)
+                if response.error != nil{
+                    return
+                }
                 
-                var typeData: PokemonTypeData = PokemonTypeData(name: responseData.name, pokemon: [])
-                
-                responseData.pokemon.forEach({ (pkmnTypeData) in
-                    typeData.pokemon.append(pkmnTypeData.pokemon)
-                })
-                
-                NotificationCenter.default.post(name: .didReceivePokemonTypeData, object: self, userInfo: ["pokemonTypeData": typeData])
+                if let responseData: PokemonTypeDataParser = try? JSONDecoder().decode(PokemonTypeDataParser.self, from: data){
+                    var typeData: PokemonTypeData = PokemonTypeData(name: responseData.name, pokemon: [])
+                    
+                    responseData.pokemon.forEach({ (pkmnTypeData) in
+                        typeData.pokemon.append(pkmnTypeData.pokemon)
+                    })
+                    
+                    NotificationCenter.default.post(name: .didReceivePokemonTypeData, object: self, userInfo: ["pokemonTypeData": typeData])
+                }
             }
         }
     }
@@ -49,9 +58,10 @@ class PokemonDataManager: NSObject {
                 if response.error != nil{
                     return
                 }
-                let responseData: PokemonDetailData = try! JSONDecoder().decode(PokemonDetailData.self, from: data)
                 
-                NotificationCenter.default.post(name: .didReceivePokemonData, object: self, userInfo: ["pokemonData": responseData])
+                if let responseData: PokemonDetailData = try? JSONDecoder().decode(PokemonDetailData.self, from: data){
+                    NotificationCenter.default.post(name: .didReceivePokemonData, object: self, userInfo: ["pokemonData": responseData])
+                }
             }
         }
     }

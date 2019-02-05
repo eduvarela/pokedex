@@ -67,7 +67,7 @@ class PokemonDetailViewController: UIViewController {
         // set up activity view controller
         var stringAbilities = ""
         abilitiesList.forEach { (pokemonAbility) in
-            stringAbilities += "\(pokemonAbility.name)\n"
+            stringAbilities += "\(pokemonAbility.name.capitalized)\n"
         }
         
         let textToShare = ["[Pokemon]\nName: \(pokemonName.text!)\nHeight: \(pokemonHeight.text!)\nWeight: \(pokemonWeight.text!)\nAbilities:\n\(stringAbilities)"]
@@ -87,7 +87,7 @@ extension PokemonDetailViewController: UITableViewDelegate, UITableViewDataSourc
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "PokemonAbilityCell", for: indexPath)
-        cell.textLabel?.text = abilitiesList[indexPath.row].name
+        cell.textLabel?.text = abilitiesList[indexPath.row].name.capitalized
         cell.textLabel?.textColor = UIColor(red: 248/255.0, green: 12/255.0, blue: 49/255.0, alpha: 1.0)
         return cell
     }

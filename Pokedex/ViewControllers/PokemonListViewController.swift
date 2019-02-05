@@ -7,11 +7,13 @@
 //
 
 import UIKit
+import Reachability
 
 class PokemonListViewController: UIViewController {
     var typeUrl: String = ""
     var pokemonList: [PokemonData] = []
     var selectedItem: Int = 0
+    let reachability = Reachability()!
 
     var activityIndicator: UIActivityIndicatorView? = nil
     @IBOutlet weak var pokemonListTableView: UITableView!
@@ -30,7 +32,33 @@ class PokemonListViewController: UIViewController {
         // Start the loading animation
         activityIndicator?.startAnimating()
         
-        PokemonDataManager.pokemonTypeData(url: typeUrl)
+        self.title = "Loading..."
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(reachabilityChanged(note:)), name: .reachabilityChanged, object: reachability)
+        do{
+            try reachability.startNotifier()
+        }catch{
+            print("could not start reachability notifier")
+        }
+        
+    
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+
+    }
+    
+    @objc func reachabilityChanged(note: Notification) {
+        
+        let reachability = note.object as! Reachability
+        
+      
+        if reachability.connection != .none{
+            if (pokemonList.isEmpty){
+                PokemonDataManager.pokemonTypeData(url: typeUrl)
+            }
+        }
+        
     }
     
     @objc func onDidReceivePokemonTypeData(notification:Notification) {
