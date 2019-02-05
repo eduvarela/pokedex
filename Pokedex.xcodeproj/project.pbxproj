@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		4D8E38179C46B8A2C7234733 /* Pods_Pokedex.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EDFF214E1E0952FF8E1FE8BE /* Pods_Pokedex.framework */; };
+		BF6B3E93220A4760008B2C7C /* pokeline.png in Resources */ = {isa = PBXBuildFile; fileRef = BF6B3E92220A4760008B2C7C /* pokeline.png */; };
 		BF732BF22208E33400B65B89 /* fairyType.png in Resources */ = {isa = PBXBuildFile; fileRef = BF732BE02208E33300B65B89 /* fairyType.png */; };
 		BF732BF32208E33400B65B89 /* bugType.png in Resources */ = {isa = PBXBuildFile; fileRef = BF732BE12208E33300B65B89 /* bugType.png */; };
 		BF732BF42208E33400B65B89 /* normalType.png in Resources */ = {isa = PBXBuildFile; fileRef = BF732BE22208E33400B65B89 /* normalType.png */; };
@@ -26,7 +27,6 @@
 		BF732C012208E33400B65B89 /* fireType.png in Resources */ = {isa = PBXBuildFile; fileRef = BF732BEF2208E33400B65B89 /* fireType.png */; };
 		BF732C022208E33400B65B89 /* iceType.png in Resources */ = {isa = PBXBuildFile; fileRef = BF732BF02208E33400B65B89 /* iceType.png */; };
 		BF732C032208E33400B65B89 /* darkType.png in Resources */ = {isa = PBXBuildFile; fileRef = BF732BF12208E33400B65B89 /* darkType.png */; };
-		BF732C052208F70C00B65B89 /* splash.png in Resources */ = {isa = PBXBuildFile; fileRef = BF732C042208F70C00B65B89 /* splash.png */; };
 		BF732C072208FB7200B65B89 /* Pokemon.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF732C062208FB7200B65B89 /* Pokemon.swift */; };
 		BF732C092208FD6600B65B89 /* PokemonListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF732C082208FD6600B65B89 /* PokemonListViewController.swift */; };
 		BF732C0B22090BF600B65B89 /* PokemonDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF732C0A22090BF600B65B89 /* PokemonDetailViewController.swift */; };
@@ -43,6 +43,7 @@
 /* Begin PBXFileReference section */
 		8B84BEFB6689677677357B26 /* Pods-Pokedex.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Pokedex.release.xcconfig"; path = "Pods/Target Support Files/Pods-Pokedex/Pods-Pokedex.release.xcconfig"; sourceTree = "<group>"; };
 		B9E05AFF6376167D70D5080B /* Pods-Pokedex.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Pokedex.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Pokedex/Pods-Pokedex.debug.xcconfig"; sourceTree = "<group>"; };
+		BF6B3E92220A4760008B2C7C /* pokeline.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pokeline.png; sourceTree = "<group>"; };
 		BF732BE02208E33300B65B89 /* fairyType.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = fairyType.png; sourceTree = "<group>"; };
 		BF732BE12208E33300B65B89 /* bugType.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bugType.png; sourceTree = "<group>"; };
 		BF732BE22208E33400B65B89 /* normalType.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = normalType.png; sourceTree = "<group>"; };
@@ -61,7 +62,6 @@
 		BF732BEF2208E33400B65B89 /* fireType.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = fireType.png; sourceTree = "<group>"; };
 		BF732BF02208E33400B65B89 /* iceType.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = iceType.png; sourceTree = "<group>"; };
 		BF732BF12208E33400B65B89 /* darkType.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = darkType.png; sourceTree = "<group>"; };
-		BF732C042208F70C00B65B89 /* splash.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = splash.png; sourceTree = "<group>"; };
 		BF732C062208FB7200B65B89 /* Pokemon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pokemon.swift; sourceTree = "<group>"; };
 		BF732C082208FD6600B65B89 /* PokemonListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokemonListViewController.swift; sourceTree = "<group>"; };
 		BF732C0A22090BF600B65B89 /* PokemonDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokemonDetailViewController.swift; sourceTree = "<group>"; };
@@ -164,8 +164,8 @@
 		BFD13FD322078BB100941C1F /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				BF6B3E92220A4760008B2C7C /* pokeline.png */,
 				BF732C0C2209275600B65B89 /* pokeball.png */,
-				BF732C042208F70C00B65B89 /* splash.png */,
 				BF732BDF2208E32600B65B89 /* PokemonTypes */,
 			);
 			path = Resources;
@@ -298,9 +298,9 @@
 				BF732C012208E33400B65B89 /* fireType.png in Resources */,
 				BFE17B582207852A00E17D6E /* Assets.xcassets in Resources */,
 				BF732BFA2208E33400B65B89 /* waterType.png in Resources */,
-				BF732C052208F70C00B65B89 /* splash.png in Resources */,
 				BF732C022208E33400B65B89 /* iceType.png in Resources */,
 				BFE17B562207852800E17D6E /* Pokedex.storyboard in Resources */,
+				BF6B3E93220A4760008B2C7C /* pokeline.png in Resources */,
 				BF732BF52208E33400B65B89 /* steelType.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

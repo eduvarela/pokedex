@@ -22,22 +22,17 @@
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="333.5"/>
                                 <color key="backgroundColor" red="0.97407924109999999" green="0.04709876138" blue="0.1913230917" alpha="1" colorSpace="calibratedRGB"/>
                             </view>
-                            <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="splash.png" translatesAutoresizingMaskIntoConstraints="NO" id="nGz-HZ-WDF">
-                                <rect key="frame" x="0.0" y="238" width="375" height="202"/>
+                            <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="pokeline.png" translatesAutoresizingMaskIntoConstraints="NO" id="nGz-HZ-WDF">
+                                <rect key="frame" x="-519.5" y="-373.5" width="1414" height="1414"/>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="nGz-HZ-WDF" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="218" id="1zS-zs-MkG"/>
-                            <constraint firstItem="nGz-HZ-WDF" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="218" id="7gb-Jh-Gxh"/>
-                            <constraint firstItem="nGz-HZ-WDF" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="AU8-0V-8pc"/>
                             <constraint firstItem="aR0-sI-YA6" firstAttribute="height" secondItem="Ze5-6b-2t3" secondAttribute="height" multiplier="0.5" id="PXs-2E-KIK"/>
+                            <constraint firstItem="nGz-HZ-WDF" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="PkQ-Bt-Y0N"/>
                             <constraint firstItem="aR0-sI-YA6" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="SAG-in-BE1"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="nGz-HZ-WDF" secondAttribute="bottom" constant="227" id="Xj4-dk-yQF"/>
-                            <constraint firstItem="nGz-HZ-WDF" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="YEz-u6-ILt"/>
-                            <constraint firstItem="nGz-HZ-WDF" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="cXy-1a-Saf"/>
                             <constraint firstItem="aR0-sI-YA6" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="ctR-2z-BYO"/>
-                            <constraint firstItem="nGz-HZ-WDF" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="shu-cK-nqe"/>
+                            <constraint firstItem="nGz-HZ-WDF" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="ipO-Ye-YFJ"/>
                             <constraint firstItem="aR0-sI-YA6" firstAttribute="top" secondItem="Ze5-6b-2t3" secondAttribute="top" id="wSK-R2-zQa"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
@@ -49,6 +44,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="splash.png" width="1414" height="1414"/>
+        <image name="pokeline.png" width="1414" height="1414"/>
     </resources>
 </document>
