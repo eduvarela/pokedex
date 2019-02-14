@@ -48,8 +48,6 @@ class PokemonDetailViewController: UIViewController {
         }
         
         self.pokemonImage.layer.cornerRadius = self.pokemonImage.frame.width / 2
-        
-        PokemonDataManager.pokemonData(url: pokemonUrl)
     }
     
     @objc func onDidReceivePokemonTypeData(notification:Notification) {
